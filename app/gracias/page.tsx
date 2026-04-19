@@ -41,30 +41,51 @@ export default function GraciasPage() {
       }}
     >
       <div style={{ textAlign: "center" }}>
-        <img
-  src="/vela-final.webp"
-  alt="vela"
-  style={{
-    width: "220px",
-    marginBottom: "20px",
-    filter: "drop-shadow(0 0 25px rgba(255,180,80,0.8))"
-  }}
-/>
 
+        {/* נר גדול */}
+        <img
+          src="/OIP.webp"
+          alt="vela"
+          style={{
+            width: "220px",
+            marginBottom: "20px",
+            filter: "drop-shadow(0 0 25px rgba(255,180,80,0.8))"
+          }}
+        />
+
+        {/* כותרת */}
         <h1 style={{ fontSize: "42px", marginBottom: "20px" }}>
-          Gracias por encender una vela en su memoria
+          Tu luz se ha unido a la memoria
         </h1>
 
-        <p
-          style={{ fontSize: "26px", color: "#ead7a1" }}
-          dir="ltr"
-        >
-          Personas que ya encendieron una vela:
+        {/* טקסט */}
+        <p style={{ fontSize: "26px", color: "#ead7a1" }}>
+          Cada vela mantiene viva la memoria
         </p>
 
-        <div style={{ fontSize: "48px", marginTop: "12px" }}>
-          {count === null ? "..." : count}
+        {/* מונה */}
+        <div style={{ fontSize: "48px", marginTop: "20px" }}>
+          {count === null ? "..." : count} 🕯️
         </div>
+
+        {/* כפתור לחזור */}
+        <a
+          href="/encender"
+          style={{
+            display: "inline-block",
+            marginTop: "40px",
+            padding: "14px 28px",
+            background: "linear-gradient(180deg, #c89b3c, #8a5a1f)",
+            color: "#fff",
+            borderRadius: "10px",
+            textDecoration: "none",
+            fontSize: "18px",
+            boxShadow: "0 10px 30px rgba(255,180,80,0.3)"
+          }}
+        >
+          Encender otra vela
+        </a>
+
       </div>
     </main>
   );
