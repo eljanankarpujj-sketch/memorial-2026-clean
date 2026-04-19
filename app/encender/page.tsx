@@ -29,7 +29,7 @@ export default function EncenderPage() {
     setLoading(false);
 
     if (error) {
-      alert("Hubo un problema al encender la vela.");
+  alert(JSON.stringify(error));
       return;
     }
 
