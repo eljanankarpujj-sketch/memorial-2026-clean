@@ -35,9 +35,12 @@ export default function GraciasPage() {
           Gracias por encender una vela en su memoria
         </h1>
 
-        <p style={{ fontSize: "26px", color: "#ead7a1" }}>
-          Personas que ya encendieron una vela:
-        </p>
+       <p
+  style={{ fontSize: "26px", color: "#ead7a1" }}
+  dir="ltr"
+>
+  Personas que ya encendieron una vela:
+</p>
 
         <div style={{ fontSize: "48px", marginTop: "12px" }}>
           {count}
