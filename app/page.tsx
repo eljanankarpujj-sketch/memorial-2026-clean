@@ -10,7 +10,7 @@ export default function Home() {
         justifyContent: "center",
         padding: "24px",
         background:
-          "radial-gradient(circle at center, rgba(94,52,10,0.55) 0%, rgba(26,12,3,0.92) 35%, #000 75%)",
+          "radial-gradient(circle at center, rgba(120,60,10,0.6) 0%, rgba(20,10,2,0.95) 40%, #000 80%)",
         color: "#f5e7be",
         fontFamily: "Georgia, serif",
       }}
@@ -18,33 +18,33 @@ export default function Home() {
       <div
         style={{
           width: "100%",
-          maxWidth: "620px",
+          maxWidth: "700px",
           textAlign: "center",
         }}
       >
-        {/* כותרת ראשית */}
+        {/* כותרת עליונה */}
+        <div
+          style={{
+            fontSize: "22px",
+            letterSpacing: "2px",
+            marginBottom: "20px",
+            color: "#e7d19a",
+          }}
+        >
+          EMBAJADA DE ISRAEL EN PARAGUAY
+        </div>
+
+        {/* כותרת מרכזית */}
         <h1
           style={{
             fontSize: "64px",
-            marginBottom: "10px",
+            marginBottom: "30px",
             fontWeight: 500,
             color: "#f6e9c6",
           }}
         >
           DÍA DE MEMORIA 2026
         </h1>
-
-        {/* תת כותרת */}
-        <h2
-          style={{
-            fontSize: "32px",
-            marginBottom: "30px",
-            fontWeight: 400,
-            color: "#e7d19a",
-          }}
-        >
-          Bienvenidos a la Embajada de Israel en Paraguay
-        </h2>
 
         {/* טקסט */}
         <p
@@ -64,28 +64,30 @@ export default function Home() {
             display: "inline-block",
             textDecoration: "none",
             padding: "18px 42px",
-            borderRadius: "12px",
+            borderRadius: "14px",
             fontSize: "28px",
             fontWeight: 600,
             color: "#fff7df",
             background:
-              "linear-gradient(180deg, #c08a39 0%, #9b6826 45%, #734818 100%)",
+              "linear-gradient(180deg, #d9a44c 0%, #a86e2c 50%, #6f4316 100%)",
             boxShadow:
-              "0 0 28px rgba(192,138,57,0.28), inset 0 1px 0 rgba(255,255,255,0.18)",
-            marginBottom: "50px",
+              "0 0 40px rgba(217,164,76,0.35), inset 0 1px 0 rgba(255,255,255,0.2)",
+            marginBottom: "60px",
           }}
         >
           Encender vela
         </a>
 
-        {/* הנר למטה */}
-        <div
-          style={{
-            fontSize: "80px",
-            filter: "drop-shadow(0 0 18px rgba(255,190,90,0.4))",
-          }}
-        >
-          🕯️
+        {/* נר יפה (תמונה אמיתית) */}
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/869/869869.png"
+            alt="vela"
+            style={{
+              width: "120px",
+              filter: "drop-shadow(0 0 20px rgba(255,180,80,0.6))",
+            }}
+          />
         </div>
       </div>
     </main>
