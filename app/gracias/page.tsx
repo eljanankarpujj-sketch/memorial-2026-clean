@@ -55,8 +55,12 @@ export default function GraciasPage() {
 
         {/* כותרת */}
         <h1 style={{ fontSize: "42px", marginBottom: "20px" }}>
-          Tu luz se ha unido a la memoria
-        </h1>
+  Tu luz se ha unido a la memoria.
+</h1>
+
+<p style={{ fontSize: "26px", color: "#ead7a1" }}>
+  Cada vela mantiene vivo el recuerdo.
+</p>
 
         {/* טקסט */}
         <p style={{ fontSize: "26px", color: "#ead7a1" }}>
