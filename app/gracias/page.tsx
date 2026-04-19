@@ -59,13 +59,10 @@ export default function GraciasPage() {
 </h1>
 
 <p style={{ fontSize: "26px", color: "#ead7a1" }}>
-  Cada vela mantiene vivo el recuerdo.
+  .Cada vela mantiene vivo el recuerdo
 </p>
 
-        {/* טקסט */}
-        <p style={{ fontSize: "26px", color: "#ead7a1" }}>
-          Cada vela mantiene viva la memoria
-        </p>
+
 
         {/* מונה */}
         <div style={{ fontSize: "48px", marginTop: "20px" }}>
