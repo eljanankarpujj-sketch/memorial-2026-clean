@@ -1,14 +1,6 @@
-export const metadata = {
-  title: "Día de memoria 2026 | יום הזיכרון 2026",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
-    <html lang="he">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );
