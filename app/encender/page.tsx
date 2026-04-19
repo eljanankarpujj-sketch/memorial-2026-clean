@@ -1,11 +1,40 @@
 "use client";
 
 import { useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 export default function EncenderPage() {
   const [name, setName] = useState("");
   const [mode, setMode] = useState<"solo" | "dedicar">("solo");
   const [rememberedName, setRememberedName] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    if (loading) return;
+
+    setLoading(true);
+
+    const { error } = await supabase.from("candles").insert([
+      {
+        user_name: name || null,
+        remembered_name: mode === "dedicar" ? rememberedName || null : null,
+      },
+    ]);
+
+    setLoading(false);
+
+    if (error) {
+      alert("Hubo un problema al encender la vela.");
+      return;
+    }
+
+    window.location.href = "/gracias";
+  };
 
   return (
     <main
@@ -123,22 +152,25 @@ export default function EncenderPage() {
           </>
         )}
 
-        <a
-          href="/gracias"
+        <button
+          onClick={handleSubmit}
+          disabled={loading}
           style={{
+            border: "none",
+            cursor: "pointer",
             display: "inline-block",
             background: "linear-gradient(180deg, #b8873a 0%, #7a541d 100%)",
             color: "#fff7df",
-            textDecoration: "none",
             padding: "16px 34px",
             borderRadius: "10px",
             fontSize: "28px",
             fontWeight: 600,
             boxShadow: "0 0 24px rgba(184,135,58,0.28)",
+            opacity: loading ? 0.7 : 1,
           }}
         >
-          Encender vela
-        </a>
+          {loading ? "Guardando..." : "Encender vela"}
+        </button>
       </div>
     </main>
   );
