@@ -81,7 +81,7 @@ export default function Home() {
         {/* נר יפה (תמונה אמיתית) */}
         <div>
           <img
-            src="https://cdn-icons-png.flaticon.com/512/869/869869.png"
+          src="/descarga.webp"
             alt="vela"
             style={{
               width: "120px",
