@@ -84,7 +84,7 @@ export default function Home() {
           src="/descarga.webp"
             alt="vela"
             style={{
-              width: "120px",
+              width: "180px",
               filter: "drop-shadow(0 0 20px rgba(255,180,80,0.6))",
             }}
           />
