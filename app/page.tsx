@@ -22,40 +22,42 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <div
-          style={{
-            fontSize: "88px",
-            marginBottom: "18px",
-            filter: "drop-shadow(0 0 18px rgba(255,190,90,0.35))",
-          }}
-        >
-          🕯️
-        </div>
-
+        {/* כותרת ראשית */}
         <h1
           style={{
-            fontSize: "56px",
-            lineHeight: 1.15,
-            margin: "0 0 28px 0",
+            fontSize: "64px",
+            marginBottom: "10px",
             fontWeight: 500,
             color: "#f6e9c6",
-            textShadow: "0 0 24px rgba(255,210,120,0.08)",
+          }}
+        >
+          DÍA DE MEMORIA 2026
+        </h1>
+
+        {/* תת כותרת */}
+        <h2
+          style={{
+            fontSize: "32px",
+            marginBottom: "30px",
+            fontWeight: 400,
+            color: "#e7d19a",
           }}
         >
           Bienvenidos a la Embajada de Israel en Paraguay
-        </h1>
+        </h2>
 
+        {/* טקסט */}
         <p
           style={{
-            fontSize: "28px",
-            lineHeight: 1.6,
-            margin: "0 0 40px 0",
+            fontSize: "24px",
+            marginBottom: "40px",
             color: "#e7d19a",
           }}
         >
           Para encender una vela en memoria, presione aquí
         </p>
 
+        {/* כפתור */}
         <a
           href="/encender"
           style={{
@@ -63,17 +65,28 @@ export default function Home() {
             textDecoration: "none",
             padding: "18px 42px",
             borderRadius: "12px",
-            fontSize: "32px",
+            fontSize: "28px",
             fontWeight: 600,
             color: "#fff7df",
             background:
               "linear-gradient(180deg, #c08a39 0%, #9b6826 45%, #734818 100%)",
             boxShadow:
               "0 0 28px rgba(192,138,57,0.28), inset 0 1px 0 rgba(255,255,255,0.18)",
+            marginBottom: "50px",
           }}
         >
           Encender vela
         </a>
+
+        {/* הנר למטה */}
+        <div
+          style={{
+            fontSize: "80px",
+            filter: "drop-shadow(0 0 18px rgba(255,190,90,0.4))",
+          }}
+        >
+          🕯️
+        </div>
       </div>
     </main>
   );
