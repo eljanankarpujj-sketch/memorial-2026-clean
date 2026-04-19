@@ -41,7 +41,15 @@ export default function GraciasPage() {
       }}
     >
       <div style={{ textAlign: "center" }}>
-        <div style={{ fontSize: "80px", marginBottom: "20px" }}>🕯️</div>
+        <img
+  src="/vela-final.webp"
+  alt="vela"
+  style={{
+    width: "220px",
+    marginBottom: "20px",
+    filter: "drop-shadow(0 0 25px rgba(255,180,80,0.8))"
+  }}
+/>
 
         <h1 style={{ fontSize: "42px", marginBottom: "20px" }}>
           Gracias por encender una vela en su memoria
