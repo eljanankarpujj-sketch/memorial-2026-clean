@@ -1,18 +1,30 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 export default function GraciasPage() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("candleCount");
-    const current = saved ? parseInt(saved) : 0;
+    const loadCount = async () => {
+      const { count, error } = await supabase
+        .from("candles")
+        .select("*", { count: "exact", head: true });
 
-    const newCount = current + 1;
+      if (!error) {
+        setCount(count ?? 0);
+      } else {
+        setCount(0);
+      }
+    };
 
-    localStorage.setItem("candleCount", newCount.toString());
-    setCount(newCount);
+    loadCount();
   }, []);
 
   return (
@@ -35,15 +47,15 @@ export default function GraciasPage() {
           Gracias por encender una vela en su memoria
         </h1>
 
-       <p
-  style={{ fontSize: "26px", color: "#ead7a1" }}
-  dir="ltr"
->
-  Personas que ya encendieron una vela:
-</p>
+        <p
+          style={{ fontSize: "26px", color: "#ead7a1" }}
+          dir="ltr"
+        >
+          Personas que ya encendieron una vela:
+        </p>
 
         <div style={{ fontSize: "48px", marginTop: "12px" }}>
-          {count}
+          {count === null ? "..." : count}
         </div>
       </div>
     </main>
