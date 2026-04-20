@@ -1,25 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
 
 export default function GraciasPage() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
     const loadCount = async () => {
-      const { count, error } = await supabase
-        .from("candles")
-        .select("*", { count: "exact", head: true });
-
-      if (!error) {
-        setCount(count ?? 0);
-      } else {
+      try {
+        const res = await fetch("/api/candles");
+        const data = await res.json();
+        setCount(data.count ?? 0);
+      } catch (error) {
         setCount(0);
       }
     };
