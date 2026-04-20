@@ -5,11 +5,19 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-// 🔥 יצירת נר
+// יצירת נר
 export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { user_name, remembered_name } = body;
+
+    // מניעת שליחה ריקה לגמרי
+    if (!user_name && !remembered_name) {
+      return new Response(
+        JSON.stringify({ error: "Empty request" }),
+        { status: 400 }
+      );
+    }
 
     const { error } = await supabase.from("candles").insert([
       {
@@ -34,7 +42,7 @@ export async function POST(req: Request) {
   }
 }
 
-// 🔥 ספירת נרות
+// ספירת נרות
 export async function GET() {
   try {
     const { count, error } = await supabase
