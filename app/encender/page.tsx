@@ -1,12 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
 
 export default function EncenderPage() {
   const [name, setName] = useState("");
@@ -19,21 +13,31 @@ export default function EncenderPage() {
 
     setLoading(true);
 
-    const { error } = await supabase.from("candles").insert([
-      {
-        user_name: name || null,
-        remembered_name: mode === "dedicar" ? rememberedName || null : null,
-      },
-    ]);
+    try {
+      const res = await fetch("/api/candles", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_name: name || null,
+          remembered_name: mode === "dedicar" ? rememberedName || null : null,
+        }),
+      });
 
-    setLoading(false);
+      const data = await res.json();
 
-    if (error) {
-  alert(JSON.stringify(error));
-      return;
+      if (!res.ok) {
+        alert(data.error || "Hubo un problema al encender la vela.");
+        setLoading(false);
+        return;
+      }
+
+      window.location.href = "/gracias";
+    } catch (error) {
+      alert("Hubo un problema al encender la vela.");
+      setLoading(false);
     }
-
-    window.location.href = "/gracias";
   };
 
   return (
@@ -65,11 +69,15 @@ export default function EncenderPage() {
             marginBottom: "28px",
             fontWeight: 500,
           }}
+          dir="ltr"
         >
           Encendido de vela conmemorativa
         </h1>
 
-        <div style={{ textAlign: "left", marginBottom: "10px", fontSize: "22px" }}>
+        <div
+          style={{ textAlign: "left", marginBottom: "10px", fontSize: "22px" }}
+          dir="ltr"
+        >
           Su nombre
         </div>
 
@@ -77,6 +85,7 @@ export default function EncenderPage() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Escriba su nombre"
+          dir="ltr"
           style={{
             width: "100%",
             padding: "16px",
@@ -90,7 +99,10 @@ export default function EncenderPage() {
           }}
         />
 
-        <div style={{ textAlign: "left", marginBottom: "14px", fontSize: "22px" }}>
+        <div
+          style={{ textAlign: "left", marginBottom: "14px", fontSize: "22px" }}
+          dir="ltr"
+        >
           Seleccione una opción
         </div>
 
@@ -103,6 +115,7 @@ export default function EncenderPage() {
             textAlign: "left",
             fontSize: "22px",
           }}
+          dir="ltr"
         >
           <label>
             <input
@@ -129,7 +142,10 @@ export default function EncenderPage() {
 
         {mode === "dedicar" && (
           <>
-            <div style={{ textAlign: "left", marginBottom: "10px", fontSize: "22px" }}>
+            <div
+              style={{ textAlign: "left", marginBottom: "10px", fontSize: "22px" }}
+              dir="ltr"
+            >
               Nombre de la persona recordada
             </div>
 
@@ -137,6 +153,7 @@ export default function EncenderPage() {
               value={rememberedName}
               onChange={(e) => setRememberedName(e.target.value)}
               placeholder="Escriba el nombre"
+              dir="ltr"
               style={{
                 width: "100%",
                 padding: "16px",
